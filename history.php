@@ -1,8 +1,23 @@
+<?php
+$host="localhost";
+$dbUsername="root";
+$dbPassword="";
+$dbname="registration";
+
+$conn=new mysqli($host,$dbUsername,$dbPassword,$dbname);
+
+$qry= "SELECT * from reister";
+$result=mysqli_query($conn,$qry);
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>history</title>
 
     <style>
       .header
@@ -56,18 +71,39 @@
         border-radius:20px;
         background-color:#2C9DD5;
       }
-      .loginbox
-      {
-        position: absolute;
-        width: 300px;
-        height: 400px;
-        background: #2166a1;
-        top: 200px;
-        left: 200px;
-      }
       </style>
   </head>
   <body>
+    <div class="header">
+
+      <div width="100%">
+
+          <div class="logo">
+
+            <img src="logo.png" alt="img" width="270" height="150">
+
+          </div>
+
+          <!--menu bar -->
+                <div class="menu">
+
+
+                      <a href="#"> <i class="fa fa-fw fa-envelope"></i>Contacts</a>
+                      <a href="history.html"> <i class="fa fa-history"></i>History</a>
+                      <a href="#"> <i class="fa fa-exclamation-circle"></i>About</a>
+
+                      <div class="nav-login">
+                        <a href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
+
+                      </div>
+
+                </div>
+
+      </div>
+  <!-- header ends-->
+
+
+
 
   </body>
 </html>
