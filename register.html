@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>policewebportal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .header
+      {
+        /* background: url(https://sso.kerala.gov.in/Kerala/images/kerala/Bg_reduced.png);*/
+        width: 100vw;
+        position: relative;
+        margin-left: -50vw;
+      margin-top:-1.1vh;
+        height: 150px;
+        left: 50%;
+        background-color: #37517e;
+      }
+      .menu
+      {
+        height: 70px;
+        width: 600px;
+        float:right ;
+        margin-right: 10%;
+        margin-top: 50px;
+      }
+      .menu a
+      {
+        float: center;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        padding: 15px;
+        text-decoration: none;
+      }
+      .logo
+      {
+        float: left;
+        height:100px;
+        width: 50px;
+        margin-left: 15%;
+      }
+      .menu a:hover
+      {
+      color: cyan;
+      }
+      .nav-login
+      {
+        margin-left:80%;
+        margin-top:-4vh;
+      }
+      .nav-login a
+      {
+        display:inline-block;
+        padding:10px;
+        border-radius:20px;
+        background-color:#2C9DD5;
+      }
+      .register{
+        width: 700px;
+        height: 500px;
+        background-color: white;
+        position: absolute;
+        left: 20%;
+
+      }
+      .register input[type=text], input[type=password]
+      {
+        width: 100%;
+        padding: 10px 18px;
+        display: inline-block;
+        box-sizing: border-box;
+
+      }.register input[type=submit]{
+        width: 100%;
+        height: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: #04AA6D;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="header">
+
+      <div width="100%">
+
+          <div class="logo">
+
+            <img src="logo.png" alt="img" width="270" height="150">
+
+          </div>
+
+          <!--menu bar -->
+                <div class="menu">
+
+                      <a href="demo.html"><i class="fa fa-fw fa-home"></i>Home</a>
+                      <a href="#"> <i class="fa fa-fw fa-envelope"></i>Contacts</a>
+                      <a href="#"> <i class="fa fa-history"></i>History</a>
+                      <a href="#"> <i class="fa fa-exclamation-circle"></i>About</a>
+
+                      <div class="nav-login">
+                        <a href="demo.html"><i class="fa fa-fw fa-user"></i>Login</a>
+
+                      </div>
+
+                </div>
+
+      </div>
+</div>
+<div class="register">
+  <h1>Registration</h1>
+  <form class="" action="reg.php" method="POST">
+    First Name <input type="text" name="fname" value="" placeholder="First name" required><br>
+    Last Name <input type="text" name="lname" value="" placeholder="Last name" required><br>
+    Male <input type="radio" name="gen" value="Male" required>
+    Female <input type="radio" name="gen" value="Female" required></br>
+
+    Address <input type="text" name="address" value="" placeholder="Address" required><br>
+    Mobile No: <input type="text" name="number" value=""placeholder="Mob.No" required><br>
+    Email-id: <input type="text" name="email" value=""placeholder="email" required><br>
+    Username <input type="text" name="uname" value="" placeholder="Username" required><br>
+    Password <input type="password" name="pass" value="" placeholder="Password" required><br>
+    Confirm Password <input type="password" name="cpass" value=""placeholder="Cnfirm Password" required><br>
+    <input type="Submit" name="submit" onclick="check()" value="REGISTER">
+  </form>
+</div>
+
+</div>
+
+<script type="text/javascript">
+  function check()
+  {
+
+  }
+</script>
+  </body>
+</html>
