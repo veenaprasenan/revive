@@ -101,8 +101,13 @@ $result=mysqli_query($conn,$qry);
 
       </div>
   <!-- header ends-->
+<form class="" action="index.html" method="post">
 
+name<input type="text" name="n1" value="">
+address <input type="text" name="a1" value="">
+location  <input type="text" name="l1" value="">
 
+</form>
 
 
   </body>

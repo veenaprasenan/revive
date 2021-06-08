@@ -24,16 +24,17 @@ if(isset($_POST['s1'])){
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
         $count = mysqli_num_rows($result);
-
-
+        $name= "SELECT fname,lname from reister where uname='$uname' and password='$pass'";
+        $res=mysqli_query($conn,$name);
           if($count == 1) {
 
-            echo '<script>alert("Welcome to Geeks for Geeks")</script>' ;
+
 
                header("location: login.html");
+
             }else {
               //header('demo.php');
-              echo '<script type="text/javascript">alert("Sorry Invalid credential");window.location.href="demo.html";</script>';
+              echo '<script type="text/javascript">alert("Sorry Invalid credential");window.location.href="index.html";</script>';
 
 
           }
