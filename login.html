@@ -66,6 +66,39 @@
         top: 200px;
         left: 200px;
       }
+      .notify{
+        height: 200px;
+        width: 800px;
+        margin-left: 20%;
+        top:200px;
+        position: absolute;
+
+      }
+      .notify input[type=text]{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+      }
+      .notify input[type=submit]{
+        background-color: #04AA6D;
+        cursor: pointer;
+        width: 25%;
+        height: 40px;
+        font-weight: bold;
+        font-size: 17px;
+      border-radius: 15px;
+      }
+    .mar{
+    position: absolute;
+    width: 100%;
+    top: 110%;
+    }
+    marquee
+  {
+    font-size: 20px;
+    font-weight: bold;
+  }
       </style>
   </head>
   <body>
@@ -97,12 +130,34 @@
       </div>
 <!-- header ends-->
 
-<div class="addbtn">
+<div class="mar">
 
-  <a href="add.php"></a>
+  <marquee scrollamount="12" style="color:red;" width="85%">Please be Alert checking official mail and Response..Save Life..</marquee>
 
 </div>
 
+
+<div class="notify">
+
+
+
+      <form class="" action="history.php" method="post">
+        <table>
+              <tr><td style="font-weight:bold; font-size:18px;">Name</td><td><input type="text" name="n1" value=""></td></tr>
+              <tr><td style="font-weight:bold; font-size:18px;">Address</td> <td><input type="text" name="a1" value=""></td></tr>
+
+              <tr><td style="font-weight:bold; font-size:18px;">Location</td><td>  <input type="text" name="l1" value=""></td></tr>
+              <tr><td style="font-weight:bold; font-size:18px;">Vehicle No:</td> <td><input type="text" name="v1" value=""></td></tr>
+
+              <tr><td style="font-weight:bold; font-size:18px;">Rate of impact</td> <td><input type="text" name="r1" value=""></td></tr>
+              <tr><td style="font-weight:bold; font-size:18px;">Date</td> <td><input type="date" name="d1" value=""></td></tr>
+
+
+        </table>
+            <input type="submit" name="s1" value="Done">
+      </form>
+
+</div>
 
   </body>
 </html>
