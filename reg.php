@@ -3,6 +3,7 @@
 <?php
 
 if (isset($_POST['submit'])){
+        $csno=$_POST['csno'];
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
         $gender=$_POST['gen'];
@@ -13,7 +14,7 @@ if (isset($_POST['submit'])){
         $pass=$_POST['pass'];
         $cpass=$_POST['cpass'];
 
-        if(!empty($fname) || !empty($lname) || !empty($gender) || !empty($address) || !empty($mobno) || !empty($email) || !empty($uname) || !empty($pass) || !empty($cpass) )
+        if(!empty($csno)|| !empty($fname) || !empty($lname) || !empty($gender) || !empty($address) || !empty($mobno) || !empty($email) || !empty($uname) || !empty($pass) || !empty($cpass) )
         {
           $host="localhost";
           $dbUsername="root";
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])){
         }
         else {
           $SELECT= "SELECT email from reister where email=? Limit 1 ";
-          $INSERT= "INSERT Into reister (fname,lname,gender,address,mobileno,email,uname,password,cpassword) values (?,?,?,?,?,?,?,?,?)";
+          $INSERT= "INSERT Into reister (csno,fname,lname,gender,address,mobileno,email,uname,password,cpassword) values (?,?,?,?,?,?,?,?,?,?)";
           //prepare statement...
           $stmt=$conn->prepare($SELECT);
           $stmt->bind_param( 's', $email);
@@ -41,11 +42,11 @@ if (isset($_POST['submit'])){
             $stmt->close();
 
             $stmt=$conn->prepare($INSERT);
-            $stmt->bind_param('sssssssss', $fname,$lname,$gender,$address,$mobno,$email,$uname,$pass,$cpass);
+            $stmt->bind_param('ssssssssss',$csno, $fname,$lname,$gender,$address,$mobno,$email,$uname,$pass,$cpass);
             $stmt->execute();
           //  echo"new record inserted successfully";
 
-echo '<script type="text/javascript">alert("Details added successfully.Now login to continue..");window.location.href="demo.html";</script>';
+echo '<script type="text/javascript">alert("Details added successfully.Now login to continue..");window.location.href="index.html";</script>';
           }
           else {
             echo '<script>alert("someone already register using this email.")</script>';
