@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>history</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
       .header
@@ -79,6 +80,34 @@
         top: 150%;
         left: 30%;
       }
+      table {
+          font-size: large;
+          border: 1px solid black;
+          margin-left:0px;
+      }
+
+      td {
+          background-color: WHITE;
+          border: 1px solid black;
+      }
+
+      th,
+      td {
+          font-weight: bold;
+          border: 1px solid black;
+          padding: 10px;
+          text-align: center
+      }
+
+      td {
+          font-weight: lighter;
+      }
+      .back{
+        position: absolute;
+        top: 110%;
+        margin-left: 400px;
+        font-size: 20px;
+      }
       </style>
   </head>
   <body>
@@ -109,23 +138,26 @@
 
       </div>
   <!-- header ends-->
+<div class="back">
+<a href="login.html" ><i class="fa fa-arrow-circle-o-left"></i>Back</a>
 
+</div>
 
 <div class="logs">
 <form class="" action="logs.php" method="post">
-  <input type="text" placeholder="Search..by Veh.No" name="search">
+
+<input type="text" placeholder="Search..by Veh.No" name="s1">
       <button type="submit">Search</button>
       <label for="dat">Dates from</label>
-      <input type="date" name="dat" value="<?php echo (isset ($_POST['dat'])) ? $_POST['dat']: ''; ?> "placeholder="From date">
+      <input type="date" name="dat" value="" placeholder="From date">
 		  <button type="submit" name="search" class="btn btn-primary">Search</button>
-
 
 </form>
 
 </div>
 
 <div class="tableform">
-
+<h2>Accident History</h2>
     <table class="table">
               <tr>
                 <th>Name</th>
@@ -140,15 +172,16 @@
     $dbUsername="root";
     $dbPassword="";
     $dbname="registration";
-
     $conn=new mysqli($host,$dbUsername,$dbPassword,$dbname);
-    if(isset($POST['search']))
-{
+
+    if(isset($_POST['search']))
+    {
     $dat=$_POST['dat'];
-    $sql=$conn->prepare ("SELECT * FROM history where(history.dat BETWEEN '".$dat." 00:00:01' and '".$dat."23:59:59')order by name DESC");
-    $sql->execute();
-    for($count=0; $row_member = $sql->fetch(); $count++){
-      $na=$row_member['name'];}
+    $sql="SELECT name,address,vno,roi,location,dat FROM history where dat like '{$dat}%'";
+    $result=mysqli_query($conn,$sql);
+
+    while($row_member = $result->fetch_assoc()){
+
     ?>
     <tr>
       <td> <?php echo $row_member['name']; ?></td>
@@ -156,11 +189,19 @@
       <td> <?php echo $row_member['vno']; ?></td>
       <td> <?php echo $row_member['roi']; ?></td>
       <td> <?php echo $row_member['location']; ?></td>
-      <td> <?php echo date("M d, Y h:i:s A", strtotime($row_member['dat'])); ?></td>
+      <td> <?php echo $row_member['dat']; ?></td>
 
     </tr>
   <?php   }
+  if ($row_member==0) {
+    // code...
+
+  ?>
+
+<?php
+}}
      ?>
+
   </table>
 
 </div>
